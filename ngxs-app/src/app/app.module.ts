@@ -1,26 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {HttpClientModule} from "@angular/common/http";
+import { FormComponent } from './form/form.component';
+import { ListComponent } from './list/list.component';
 import {NgxsModule} from "@ngxs/store";
 import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
 import {NgxsLoggerPluginModule} from "@ngxs/logger-plugin";
-import {HttpClientModule} from "@angular/common/http";
-import {CourseState} from "./course/store/course.state";
+import {ReactiveFormsModule} from '@angular/forms';
+import {TodoState} from "./state/todo.state";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FormComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
     NgxsModule.forRoot([
-      CourseState
+      TodoState
     ]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     AppRoutingModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],
