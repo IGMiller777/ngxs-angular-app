@@ -7,6 +7,7 @@ import {NgxsModule} from "@ngxs/store";
 import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
 import {NgxsLoggerPluginModule} from "@ngxs/logger-plugin";
 import {HttpClientModule} from "@angular/common/http";
+import {CourseState} from "./course/store/course.state";
 
 @NgModule({
   declarations: [
@@ -14,7 +15,9 @@ import {HttpClientModule} from "@angular/common/http";
   ],
   imports: [
     BrowserModule,
-    NgxsModule.forRoot(),
+    NgxsModule.forRoot([
+      CourseState
+    ]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     AppRoutingModule,

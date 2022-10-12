@@ -23,9 +23,15 @@ export class CourseState {
   }
 
   @Selector()
-  static areCoursesLoaded(state: CourseStateModel) {
-    return state.areCoursesLoaded
+  static getCoursesList(state: CourseStateModel) {
+    return state.courses;
   }
+
+  @Selector()
+  static areCoursesLoaded(state: CourseStateModel) {
+    return state.areCoursesLoaded;
+  }
+
 
   @Action(GetCourses)
   getCourses({getState, setState}: StateContext<CourseStateModel>) {
