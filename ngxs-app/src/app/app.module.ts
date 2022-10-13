@@ -1,3 +1,6 @@
+import { GeneralComponent } from '../app/general/general.component';
+import { AppState } from './state/app.state';
+import { DesignutilityService } from './service/designutility.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -7,20 +10,24 @@ import {NgxsModule} from "@ngxs/store";
 import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
 import {NgxsLoggerPluginModule} from "@ngxs/logger-plugin";
 import {HttpClientModule} from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GeneralComponent
   ],
   imports: [
     BrowserModule,
-    NgxsModule.forRoot(),
+    NgxsModule.forRoot([AppState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DesignutilityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
