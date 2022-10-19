@@ -7,10 +7,15 @@ import {NgxsModule} from "@ngxs/store";
 import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
 import {NgxsLoggerPluginModule} from "@ngxs/logger-plugin";
 import {HttpClientModule} from "@angular/common/http";
+import { TodoListComponent } from './todo/todo-list/todo-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +23,8 @@ import {HttpClientModule} from "@angular/common/http";
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
