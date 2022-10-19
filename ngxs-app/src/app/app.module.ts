@@ -7,24 +7,25 @@ import {NgxsModule} from "@ngxs/store";
 import {NgxsReduxDevtoolsPluginModule} from "@ngxs/devtools-plugin";
 import {NgxsLoggerPluginModule} from "@ngxs/logger-plugin";
 import {HttpClientModule} from "@angular/common/http";
-import { TodoListComponent } from './todo/todo-list/todo-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {FormsModule} from "@angular/forms";
+import {TodoModule} from "./todo/todo.module";
+import {TodoState} from "./todo/todo-state";
+import {environment} from "../environments/environment";
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoListComponent
   ],
   imports: [
     BrowserModule,
-    NgxsModule.forRoot(),
-    NgxsReduxDevtoolsPluginModule.forRoot(),
-    NgxsLoggerPluginModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule
+    TodoModule,
+    NgxsModule.forRoot([TodoState], {
+      developmentMode: !environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
